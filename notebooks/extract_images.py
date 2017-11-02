@@ -80,6 +80,7 @@ def transform(patch, flip=False, mirror=False, rotations=[]):
 
 
 # In[4]:
+print(DATASET_DIR)
 if not os.path.isdir(DATASET_DIR):
     os.mkdir(DATASET_DIR)
 else:

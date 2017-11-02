@@ -323,8 +323,9 @@ def main(weights, infer_ids, save_dir):
     # Transform from RGB to BGR
     if BGR:
         transformer.set_channel_swap('data', (2,1,0))
-
+    print infer_ids	
     imgs = [io.imread(BASE_FOLDER + 'top/top_mosaic_09cm_area{}.tif'.format(l)) for l in infer_ids]
+    #print imgs
     print "Processing {} images...".format(len(imgs))
     predictions = [process_votes(predict(img, net, transformer, step=test_step_size, patch_size=test_patch_size)) for img in imgs]
 

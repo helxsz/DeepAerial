@@ -206,6 +206,9 @@ if __name__ == "__main__":
     else:
         caffe.set_mode_cpu()
 
+
+    print(TRAIN_DATA_SOURCE,TRAIN_LABEL_SOURCE)
+
     # Generate the model prototxt
     net_arch = segnet_network(TRAIN_DATA_SOURCE, TRAIN_LABEL_SOURCE, mode='train')
     # Write the train prototxt in a file

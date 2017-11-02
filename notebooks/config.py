@@ -6,7 +6,7 @@
     step_size : stride of the sliding. If step_size < min(patch_size), then
                 there will be an overlap.
 """
-patch_size = (128, 128)
+patch_size = (256, 256)
 step_size = 32
 
 """ ROTATIONS :
@@ -31,7 +31,7 @@ FLIPS = [False, False]
     BGR : True if we want to reverse the RGB order (Caffe/OpenCV convention)
     label_values : string names for the classes
 """
-BASE_DIR = 'ISPRS/'
+BASE_DIR = '/home/sizhexi/Documents/data/ISPRS/'
 DATASET = 'Vaihingen'
 FOLDER_SUFFIX = '_fold1'
 BASE_FOLDER = BASE_DIR + DATASET + '/'
@@ -94,7 +94,7 @@ if DATASET == 'Potsdam':
 
 elif DATASET == 'Vaihingen':
     folders = [
-        ('labels', BASE_FOLDER + 'gts_numpy/', 'top_mosaic_09cm_area{}.png'),
+        ('labels', BASE_FOLDER + 'gts_numpy/', 'top_mosaic_09cm_area{}.tif'),
         ('irrg', BASE_FOLDER + 'top/', 'top_mosaic_09cm_area{}.tif')
     ]
     train_ids = [(1,), (3,), (5,), (7,), (11,), (13,), (15,),
@@ -145,9 +145,9 @@ test_step_size = 64
     MEAN_PIXEL = the mean pixel to remove as data normalization (or None)
     BATCH_SIZE = batch size of the network (adjust according to available memory)
 """
-CAFFE_ROOT = './caffesegnet/'
-SOLVER_FILE = './reference_models/solver.prototxt'
-MODEL_FOLDER = './'
+CAFFE_ROOT = '../caffe/'
+SOLVER_FILE = '../models/solver_isprs_vaihingen_irrg.prototxt'
+MODEL_FOLDER = '../models/'
 INIT_MODEL = './reference_models/vgg16fc.caffemodel'
 CAFFE_MODE = 'gpu'
 CAFFE_DEVICE = 0

@@ -1,8 +1,8 @@
-net: "segnet_isprs_vaihingen_irrg.prototxt"
+net: "../models/segnet_isprs_vaihingen_irrg.prototxt"
 solver_mode: GPU
 max_iter: 200000
 snapshot: 2000
-snapshot_prefix: "snapshots/" # EDIT ME : where to save the snapshots
+snapshot_prefix: "../snapshots" # EDIT ME : where to save the snapshots
 display: 100
 average_loss: 100
 

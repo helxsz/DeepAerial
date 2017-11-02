@@ -23,7 +23,7 @@ layer {
     phase: TRAIN
   }
   data_param {
-    source: "path/to/your/train/lmdb" # EDIT ME
+    source: "/home/sizhexi/Documents/data/ISPRS/Vaihingen/vaihingen_256_256_32_fold1/irrg_train_lmdb" # EDIT ME
     batch_size: 10  # Adjust given available memory
     backend: LMDB
   }
@@ -45,7 +45,7 @@ layer {
     phase: TRAIN
   }
   data_param {
-    source: "/path/to/your/train/labels/lmdb" # EDIT ME
+    source: "/home/sizhexi/Documents/data/ISPRS/Vaihingen/vaihingen_256_256_32_fold1/labels_train_lmdb" # EDIT ME
     batch_size: 10  # WARNING : SHOULD BE THE SAME AS ABOVE
     backend: LMDB
   }
@@ -62,7 +62,7 @@ layer {
 #    phase: TEST
 #  }
 #  data_param {
-#    source: "path/to/your/test/lmdb" # EDIT ME
+#    source: "/home/sizhexi/Documents/data/ISPRS/Vaihingen/vaihingen_128_128_32_fold1/irrg_test_lmdb" # EDIT ME
 #    batch_size: 15  # Adjust given available memory
 #    backend: LMDB
 #  }
@@ -83,7 +83,7 @@ layer {
 #    phase: TEST
 #  }
 #  data_param {
-#    source: "/path/to/your/test/labels/lmdb" # EDIT ME
+#    source: "/home/sizhexi/Documents/data/ISPRS/Vaihingen/vaihingen_128_128_32_fold1/labels_test_lmdb" # EDIT ME
 #    batch_size: 15  # WARNING : SHOULD BE THE SAME AS ABOVE
 #    backend: LMDB
 #  }

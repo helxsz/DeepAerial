@@ -74,6 +74,7 @@ def process_patches(images, net, transformer):
     """
     # caffe.io.load_image converts to [0,1], so our transformer sets it back to [0,255]
     # but the skimage lib already works with [0, 255] so we convert it to float with img_as_float
+    print 'process_patches',len(images),net.blobs['data'].data.shape
     data = np.zeros(net.blobs['data'].data.shape)
     for i in range(len(images)):
         data[i] = transformer.preprocess('data', img_as_float(images[i]))
@@ -189,6 +190,7 @@ def main(weights, images, save_dir):
     for group in groups:
         for p in process_patches(group, net, transformer):
             predictions.append(p)
+    print 'predictions',len(predictions)
     rgb_predictions = [process_votes(pred) for pred in predictions]
 
     results = []
