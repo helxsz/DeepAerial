@@ -6,6 +6,31 @@
     This scripts tests a SegNet model using a predefined Caffe solver file.
     Args: the weights (.caffemodel file) to use and the ids of the tiles to
     process
+
+
+def addGaussianNoise(image):
+    img = cv.LoadImage(image)
+    noise = cv.CreateImage(cv.GetSize(img),img.depth,img.nChannels)
+    cv.SetZero(noise)
+    rng = cv.RNG(-1)
+    cv.RandArr(rng,noise,cv.CV_RAND_NORMAL,cv.ScalarAll(0),cv.ScalarAll(25))
+    cv.Add(img,noise,img)
+    
+    tempName=os.path.splitext(image)[0]
+    tempName=tempName.split("/")[-1]
+    tempName = tempName+"_noised.jpg"
+    cv.SaveImage(tempName,img)
+
+if __name__ == "__main__":
+    for tempImg in os.listdir("./irrg_train_2"):
+        tempImg = "./irrg_train_2/"+tempImg
+        #print tempImg
+        addGaussianNoise(tempImg)
+
+
+#kernel (5,5) sigma  1.5
+
+    
 """
 
 import matplotlib.pyplot as plt
